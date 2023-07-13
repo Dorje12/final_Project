@@ -2,14 +2,14 @@ from argparse import Action
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
-
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def IndexPage(request):
     return render(request,'index.html')
 
-
+@login_required(login_url='login')
 def HomePage(request):
     return render(request,'home.html')
 
@@ -47,3 +47,18 @@ def LoginPage(request):
             
     return render(request,'login.html')
 
+def LogoutPage(request):
+    logout(request)
+    return redirect('login')
+
+@login_required(login_url='login')
+def ToSignPage(request):
+    return render(request,'tosign.html')
+
+@login_required(login_url='login')
+def AboutUsPage(request):
+    return render(request,'aboutus.html')
+
+@login_required(login_url='login')
+def ToTextPage(request):
+    return render(request,'totext.html')

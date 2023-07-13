@@ -24,5 +24,9 @@ urlpatterns = [
     path ('', views.IndexPage,name='index'),
     path('signup/',views.SignupPage,name='signup'),
     path('login/',views.LoginPage,name='login'),
-    path('home/',views.HomePage,name='home')
+    path('home/',views.HomePage,name='home'),
+    path('logout/',views.LogoutPage,name='logout'),
+    path('tosign/',views.ToSignPage,name='tosign'),
+    path('aboutus/',views.AboutUsPage,name='aboutus'),
+    path('totext/',views.ToTextPage,name='totext'),
 ]
